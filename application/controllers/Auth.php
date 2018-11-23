@@ -14,7 +14,7 @@ class Auth extends CI_Controller {
 				$data['hasil'] = $query->result_array();
 				$this->load->view('dashboard',$data);
 			} else if ($_SESSION['username']['role'] == "Visitor"){
-				$query = $this->db->query('SELECT * FROM ctb');
+				$query = $this->db->query('SELECT * FROM ctb WHERE nama_visitor="'.$_SESSION['username']['nama'].'"');
 				$data['hasil'] = $query->result_array();
 				$this->load->view('dashboard',$data);
 			} else {

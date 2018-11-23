@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SiAP Telkom</title>
+  <title>PayColl CTB</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -45,9 +45,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Si</b>AP</span>
+      <span class="logo-mini"><b>CTB</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Si</b>AP</span>
+      <span class="logo-lg"><b>PayColl</b>CTB</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -65,7 +65,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../../telkom2.png">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs">Administrator</span>
+              <img src="<?php echo base_url('telkom2.png');?>">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs">Administrator</span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
@@ -96,11 +96,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="<?php echo base_url('index.php/laporan');?>">
-            <i class="fa fa-book"></i> <span>Laporan</span>
-          </a>
-        </li>
+        <?php if($_SESSION['username']['role']=="Administrator"){?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Data</span>
@@ -114,6 +110,7 @@
             <li><a href="<?php echo base_url('index.php/excel/export');?>"><i class="fa fa-circle-o"></i> Export</a></li>
           </ul>
         </li>
+          <?php }?>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -124,7 +121,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ubah Access Point
+        Edit Work Order
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
@@ -146,143 +143,220 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Merk</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nama Visitor</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="merk" name="merk" value="<?php echo $merk;?>">
+                        <input type="text" class="form-control" id="merk" name="nama_visitor" value="<?php echo $nama_visitor;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>
+                        >
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tipe</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Visit</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tipe" name="tipe" value="<?php echo $type;?>">
+                        <input type="text" class="form-control" id="tipe" name="tgl_visit" value="<?php echo $tgl_visit;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Serial Number</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="serial-number" name="serial_number" value="<?php echo $sn;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Mac Address</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="mac-address" name="mac_address" value="<?php echo $mac_address;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Status AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="status-ap" name="status_ap" value="<?php echo $status_ap;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Paket AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="drop-from" name="paket_ap" value="<?php echo $paket_ap;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Location type</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="status-ap" name="location_type" value="<?php echo $location_type;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="location-type" name="customer" value="<?php echo $customer;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="customer" name="alamat" value="<?php echo $alamat;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Skema Bisnis</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="alamat" name="skema_bisnis" value="<?php echo $skema_bisnis;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">SSID</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="skema-bisnis" name="ssid" value="<?php echo $ssid;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Posisi AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ssi" name="posisi_ap" value="<?php echo $posisi_ap;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tahun Aktif</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="posisi-ap" name="tahun_aktif" value="<?php echo $tahun_aktif;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Bulan Aktif</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tahun-aktif" name="bulan_aktif" value="<?php echo $bulan_aktif;?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">STO</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="bulan-aktif" name="sto" value="<?php echo $sto;?>">
-                      </div>
-                    </div>
-                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">No Inet</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="sto" name="no_inet" value="<?php echo $no_inet;?>">
+                        <input type="text" class="form-control" id="serial-number" name="no_inet" value="<?php echo $no_inet;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">No Ref</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="mac-address" name="no_ref" value="<?php echo $no_ref;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="status-ap" name="prioritas" value="<?php echo $prioritas;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="drop-from" name="alamat" value="<?php echo $alamat;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="status-ap" name="nomor" value="<?php echo $nomor;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="location-type" name="rt_rw" value="<?php echo $rt_rw;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="customer" name="kelurahan" value="<?php echo $kelurahan;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="alamat" name="mk_tlp" value="<?php echo $mk_tlp;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="skema-bisnis" name="mk_email" value="<?php echo $mk_email;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="ssi" name="tagihan_n" value="<?php echo $tagihan_n;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="tahun-aktif" name="total_tagihan" value="<?php echo $total_tagihan;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" name="kategori_visit">
+                          <option>ALAMAT TIDAK DITEMUKAN</option>
+                          <option>BUKAN PELANGGAN BERSANGKUTAN</option>
+                          <option>BUKAN PEMILIK / DM</option>
+                          <option>INPROGRES VISIT</option>
+                          <option>JANJI BAYAR</option>
+                          <option>JARANG DIPAKAI</option>
+                          <option>KEMAHALAN</option>
+                          <option>KENDALA KEUANGAN/ BANGKRUT</option>
+                          <option>LAYANAN BELUM AKTIF</option>
+                          <option>LUPA BAYAR</option>
+                          <option>PASANG TINGGAL/ CABUT PASANG</option>
+                          <option>PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
+                          <option>PINDAH RUMAH/ SELESAI KONTRAK</option>
+                          <option>RUMAH TAK BERPENGHUNI</option>
+                          <option>SERING GANGGUAN/ GANGGUAN BERULANG</option>
+                          <option>SUDAH BAYAR</option>
+                          <option>SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
+                          <option>TAGIHAN MELONJAK</option>
+                          <option>TARIF TIDAK SESUAI JANJI</option>
+                          <option>TIDAK BERTEMU PENGHUNI</option>
+                          <option>TIDAK MERASA PASANG</option>
+                          <option>TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="sto" name="nama_yang_ditemui" value="<?php echo $nama_yang_ditemui;?>">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="bulan-aktif" name="keterangan" value="<?php echo $keterangan;?>">
                       </div>
                     </div>
                   </div>

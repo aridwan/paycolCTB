@@ -27,55 +27,55 @@ class Excel extends CI_Controller {
 		$sheet = $spreadsheet->getActiveSheet();
 		
 		$sheet->setCellValue('A1', 'No');
-		$sheet->setCellValue('B1', 'Merk');
-		$sheet->setCellValue('C1', 'Tipe');
-		$sheet->setCellValue('D1', 'Serial Number');
-		$sheet->setCellValue('E1', 'Mac Address');
-		$sheet->setCellValue('F1', 'Status AP');			
-		$sheet->setCellValue('G1', 'Paket AP');
-		$sheet->setCellValue('H1', 'Location Type');
-		$sheet->setCellValue('I1', 'Customer');
-		$sheet->setCellValue('J1', 'Alamat');
-		$sheet->setCellValue('K1', 'Skema Bisnis');
-		$sheet->setCellValue('L1', 'SSID');
-		$sheet->setCellValue('M1', 'Posisi AP');
-		$sheet->setCellValue('N1', 'Tahun Aktif');
-		$sheet->setCellValue('O1', 'Bulan Aktif');
-		$sheet->setCellValue('P1', 'STO');
-		$sheet->setCellValue('Q1', 'No Inet');
-		$sheet->setCellValue('R1', 'Last Update');
+		$sheet->setCellValue('B1', 'Nama Visitor');
+		$sheet->setCellValue('C1', 'Tanggal Visit');
+		$sheet->setCellValue('D1', 'No Inet');
+		$sheet->setCellValue('E1', 'No Ref');
+		$sheet->setCellValue('F1', 'Prioritas');			
+		$sheet->setCellValue('G1', 'Alamat');
+		$sheet->setCellValue('H1', 'Nomor');
+		$sheet->setCellValue('I1', 'RT/RW');
+		$sheet->setCellValue('J1', 'Kelurahan');
+		$sheet->setCellValue('K1', 'MK Telp');
+		$sheet->setCellValue('L1', 'MK Email');
+		$sheet->setCellValue('M1', 'Tagihan N');
+		$sheet->setCellValue('N1', 'Tagihan N1');
+		$sheet->setCellValue('O1', 'Total Tagihan');
+		$sheet->setCellValue('P1', 'Kategori Visit');
+		$sheet->setCellValue('Q1', 'Nama Yang Ditemui');
+		$sheet->setCellValue('R1', 'Keterangan');
+		$sheet->setCellValue('S1', 'Last Update');
 
-		$sheet->setCellValue('A'.'2','testing');
-
-		$accessPoints = $this->db->get('access_point')->result_array();
+		$accessPoints = $this->db->get('ctb')->result_array();
 		
 		for($i=1;$i<=count($accessPoints);$i++){
 			$z=$i+1;
 
 			$sheet->setCellValue('A'.$z,$accessPoints[$i-1]['id']);
-			$sheet->setCellValue('B'.$z,$accessPoints[$i-1]['merk']);
-			$sheet->setCellValue('C'.$z,$accessPoints[$i-1]['type']);
-			$sheet->setCellValue('D'.$z,$accessPoints[$i-1]['sn']);
-			$sheet->setCellValue('E'.$z,$accessPoints[$i-1]['mac_address']);			
-			$sheet->setCellValue('F'.$z,$accessPoints[$i-1]['status_ap']);
-			$sheet->setCellValue('G'.$z,$accessPoints[$i-1]['paket_ap']);
-			$sheet->setCellValue('H'.$z,$accessPoints[$i-1]['location_type']);
-			$sheet->setCellValue('I'.$z,$accessPoints[$i-1]['customer']);
-			$sheet->setCellValue('J'.$z,$accessPoints[$i-1]['alamat']);
-			$sheet->setCellValue('K'.$z,$accessPoints[$i-1]['skema_bisnis']);
-			$sheet->setCellValue('L'.$z,$accessPoints[$i-1]['ssid']);
-			$sheet->setCellValue('M'.$z,$accessPoints[$i-1]['posisi_ap']);
-			$sheet->setCellValue('N'.$z,$accessPoints[$i-1]['tahun_aktif']);
-			$sheet->setCellValue('O'.$z,$accessPoints[$i-1]['bulan_aktif']);
-			$sheet->setCellValue('P'.$z,$accessPoints[$i-1]['sto']);
-			$sheet->setCellValue('Q'.$z,$accessPoints[$i-1]['no_inet']);
-			$sheet->setCellValue('R'.$z,$accessPoints[$i-1]['last_update']);
+			$sheet->setCellValue('B'.$z,$accessPoints[$i-1]['nama_visitor']);
+			$sheet->setCellValue('C'.$z,$accessPoints[$i-1]['tgl_visit']);
+			$sheet->setCellValue('D'.$z,$accessPoints[$i-1]['no_inet']);
+			$sheet->setCellValue('E'.$z,$accessPoints[$i-1]['no_ref']);			
+			$sheet->setCellValue('F'.$z,$accessPoints[$i-1]['prioritas']);
+			$sheet->setCellValue('G'.$z,$accessPoints[$i-1]['alamat']);
+			$sheet->setCellValue('H'.$z,$accessPoints[$i-1]['nomor']);
+			$sheet->setCellValue('I'.$z,$accessPoints[$i-1]['rt_rw']);
+			$sheet->setCellValue('J'.$z,$accessPoints[$i-1]['kelurahan']);
+			$sheet->setCellValue('K'.$z,$accessPoints[$i-1]['mk_tlp']);
+			$sheet->setCellValue('L'.$z,$accessPoints[$i-1]['mk_email']);
+			$sheet->setCellValue('M'.$z,$accessPoints[$i-1]['tagihan_n']);
+			$sheet->setCellValue('N'.$z,$accessPoints[$i-1]['tagihan_n1']);
+			$sheet->setCellValue('O'.$z,$accessPoints[$i-1]['total_tagihan']);
+			$sheet->setCellValue('P'.$z,$accessPoints[$i-1]['kategori_visit']);
+			$sheet->setCellValue('Q'.$z,$accessPoints[$i-1]['nama_yang_ditemui']);
+			$sheet->setCellValue('R'.$z,$accessPoints[$i-1]['keterangan']);
+			$sheet->setCellValue('S'.$z,$accessPoints[$i-1]['last_update']);
 
 		}
 		
 		$writer = new Xlsx($spreadsheet);
 
-		$filename = 'Data_acces_point_'.date("d-m-Y").'_'.date("h:i:sa");
+		$filename = 'Data_ctb_'.date("d-m-Y").'_'.date("h:i:sa");
 
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="'. $filename .'.xlsx"'); 
@@ -86,7 +86,11 @@ class Excel extends CI_Controller {
 	}
 
 	public function importPage(){
-		$this->load->view('import_page');
+		if(isset($_SESSION['username'])){
+			$this->load->view('import_page');
+		} else {
+			$this->load->view('forbidden_page');
+		}
 	}
 
 	public function upload(){

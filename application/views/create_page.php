@@ -65,7 +65,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../telkom2.png">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs">Administrator</span>
+              <img src="../../telkom2.png">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs"><?php echo $_SESSION['username']['nama'];?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
@@ -94,11 +94,6 @@
         <li>
           <a href="<?php echo base_url('index.php/auth');?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url('index.php/laporan');?>">
-            <i class="fa fa-book"></i> <span>Laporan</span>
           </a>
         </li>
         <li class="treeview">

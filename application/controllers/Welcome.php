@@ -7,7 +7,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Xlsx;
 class Welcome extends CI_Controller {
 
 	public function index(){
-		print_r($_SESSION);
 		if (isset($_SESSION['username'])){
 		if ($_SESSION['username'] == 'admin'){
 			// $this->session->set_userdata(array('username'=>$username));
