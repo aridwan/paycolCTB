@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
@@ -119,7 +120,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tambah Access Point
+        Tambah Work Order
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
@@ -136,176 +137,211 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?php echo base_url('index.php/crud/insert');?>" class="form-horizontal" method="POST">
+            <form action="<?php echo base_url('index.php/crud/insert/');?>" class="form-horizontal" method="POST">
               <div class="box-body">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Merk</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nama Visitor</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="merk" name="merk" >
+                        <select class="form-control" name="nama_visitor">
+                          <option value="ANDRIANSYAH">ANDRIANSYAH</option>
+                          <option value="ARI">ARI</option>
+                          <option value="BUCHORI">BUCHORI</option>
+                          <option value="DONI">DONI</option>
+                          <option value="EVEN">EVEN</option>
+                          <option value="IRFAN">IRFAN</option>
+                          <option value="ISKANDAR">ISKANDAR</option>
+                          <option value="RISMANTO">RISMANTO</option>
+                          <option value="RUSLI">RUSLI</option>
+                          <option value="SUKENDAR">SUKENDAR</option>
+                        </select>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tipe</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Visit</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tipe" name="tipe" >
+                        <input type="text" class="form-control" id="datepicker" name="tgl_visit">
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Serial Number</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="serial-number" name="serial_number" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Mac Address</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="mac-address" name="mac_address" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Status AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="status-ap" name="status_ap" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Paket AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="drop-from" name="paket_ap" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Location type</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="status-ap" name="location_type" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="location-type" name="customer" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="customer" name="alamat" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Skema Bisnis</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="alamat" name="skema_bisnis" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">SSID</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="skema-bisnis" name="ssid" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Posisi AP</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ssi" name="posisi_ap" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tahun Aktif</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="posisi-ap" name="tahun_aktif" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Bulan Aktif</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tahun-aktif" name="bulan_aktif" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">STO</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="bulan-aktif" name="sto" >
-                      </div>
-                    </div>
-                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">No Inet</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="sto" name="no_inet" >
+                        <input type="text" class="form-control" id="serial-number" name="no_inet">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">No Ref</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="mac-address" name="no_ref">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" name="prioritas">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="drop-from" name="alamat">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="status-ap" name="nomor">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="location-type" name="rt_rw">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="customer" name="kelurahan">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="alamat" name="mk_tlp">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="skema-bisnis" name="mk_email">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="ssi" name="tagihan_n">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n1">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="tahun-aktif" name="total_tagihan">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" name="kategori_visit">
+                          <option>ALAMAT TIDAK DITEMUKAN</option>
+                          <option>BUKAN PELANGGAN BERSANGKUTAN</option>
+                          <option>BUKAN PEMILIK / DM</option>
+                          <option>INPROGRES VISIT</option>
+                          <option>JANJI BAYAR</option>
+                          <option>JARANG DIPAKAI</option>
+                          <option>KEMAHALAN</option>
+                          <option>KENDALA KEUANGAN/ BANGKRUT</option>
+                          <option>LAYANAN BELUM AKTIF</option>
+                          <option>LUPA BAYAR</option>
+                          <option>PASANG TINGGAL/ CABUT PASANG</option>
+                          <option>PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
+                          <option>PINDAH RUMAH/ SELESAI KONTRAK</option>
+                          <option>RUMAH TAK BERPENGHUNI</option>
+                          <option>SERING GANGGUAN/ GANGGUAN BERULANG</option>
+                          <option>SUDAH BAYAR</option>
+                          <option>SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
+                          <option>TAGIHAN MELONJAK</option>
+                          <option>TARIF TIDAK SESUAI JANJI</option>
+                          <option>TIDAK BERTEMU PENGHUNI</option>
+                          <option>TIDAK MERASA PASANG</option>
+                          <option>TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="sto" name="nama_yang_ditemui">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="bulan-aktif" name="keterangan">
                       </div>
                     </div>
                   </div>
                 </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">Simpan</button>
+                <button type="submit" class="btn btn-success pull-right">Simpan</button>
               </div>
               <!-- /.box-footer -->
 
               <!-- modal -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Peringatan</h4>
-                    </div>
-                    <div class="modal-body">
-                      Apakah anda yakin akan mengubah data tersebut ?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                      <button type="submit" class="btn btn-primary">Ubah</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </form>
           </div>
           <!-- /.box -->
@@ -321,8 +357,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018 <a href="https:telkom.co.id">Telkom Indonesia</a>.</strong> (940393)
   </footer>
 
   <!-- Control Sidebar -->
@@ -440,6 +475,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="https://adminlte.io/themes/AdminLTE/dist/js/demo.js"></script>
 <!-- page script -->
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script>
   $(function () {
     $('#example1').DataTable()
@@ -450,6 +486,10 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false
+    })
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'dd-m-yyyy'
     })
   })
 </script>

@@ -145,6 +145,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Nama Visitor</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="merk" name="nama_visitor" value="<?php echo $nama_visitor;?>">
                         <input type="text" class="form-control" id="merk" name="nama_visitor" value="<?php echo $nama_visitor;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -157,6 +158,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Visit</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="tipe" name="tgl_visit" value="<?php echo $tgl_visit;?>" >
                         <input type="text" class="form-control" id="tipe" name="tgl_visit" value="<?php echo $tgl_visit;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -170,6 +172,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">No Inet</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="serial-number" name="no_inet" value="<?php echo $no_inet;?>">
                         <input type="text" class="form-control" id="serial-number" name="no_inet" value="<?php echo $no_inet;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -181,6 +184,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">No Ref</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="mac-address" name="no_ref" value="<?php echo $no_ref;?>" >
                         <input type="text" class="form-control" id="mac-address" name="no_ref" value="<?php echo $no_ref;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -194,6 +198,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="status-ap" name="prioritas" value="<?php echo $prioritas;?>" >
                         <input type="text" class="form-control" id="status-ap" name="prioritas" value="<?php echo $prioritas;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -205,6 +210,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="drop-from" name="alamat" value="<?php echo $alamat;?>" >
                         <input type="text" class="form-control" id="drop-from" name="alamat" value="<?php echo $alamat;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -218,6 +224,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="status-ap" name="nomor" value="<?php echo $nomor;?>" >
                         <input type="text" class="form-control" id="status-ap" name="nomor" value="<?php echo $nomor;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -229,6 +236,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="location-type" name="rt_rw" value="<?php echo $rt_rw;?>" >
                         <input type="text" class="form-control" id="location-type" name="rt_rw" value="<?php echo $rt_rw;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -242,6 +250,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="customer" name="kelurahan" value="<?php echo $kelurahan;?>" >
                         <input type="text" class="form-control" id="customer" name="kelurahan" value="<?php echo $kelurahan;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -253,6 +262,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="alamat" name="mk_tlp" value="<?php echo $mk_tlp;?>" >
                         <input type="text" class="form-control" id="alamat" name="mk_tlp" value="<?php echo $mk_tlp;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -266,6 +276,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="skema-bisnis" name="mk_email" value="<?php echo $mk_email;?>" >
                         <input type="text" class="form-control" id="skema-bisnis" name="mk_email" value="<?php echo $mk_email;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -277,6 +288,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="ssi" name="tagihan_n" value="<?php echo $tagihan_n;?>" >
                         <input type="text" class="form-control" id="ssi" name="tagihan_n" value="<?php echo $tagihan_n;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -290,6 +302,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="posisi-ap" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" >
                         <input type="text" class="form-control" id="posisi-ap" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -301,6 +314,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
                       <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="tahun-aktif" name="total_tagihan" value="<?php echo $total_tagihan;?>" >
                         <input type="text" class="form-control" id="tahun-aktif" name="total_tagihan" value="<?php echo $total_tagihan;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
@@ -400,8 +414,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018 <a href="https:telkom.co.id">Telkom Indonesia</a>.</strong> (940393)
   </footer>
 
   <!-- Control Sidebar -->

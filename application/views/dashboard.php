@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
   <style type="text/css">
     .box{
@@ -132,6 +133,39 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+        <div class="col-md-6">
+          <div class="box box-solid bg-blue-gradient">
+            <div class="box-header">
+              <i class="fa fa-calendar"></i>
+
+              <h3 class="box-title">Filter Tanggal</h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <!-- button with a dropdown -->
+                
+                <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!--The calendar -->
+              <form method="GET" action="<?php echo base_url('index.php/auth/filtered')?>">
+                <div class="col-md-10">
+                  <input class="form-control" id="datepicker" name="tanggal">
+                </div>
+                <div class="col-md-2">
+                  <input type="submit" class="btn btn-success" value="Filter">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-lg-12">
           
           <!-- /.box -->
@@ -152,8 +186,7 @@
                   <th>Prioritas</th>
                   <th>Alamat</th>
                   <th>Kelurahan</th>
-                  <th>Telp</th>
-                  <th>Email</th>
+                  <th>Visit</th>
                   <th>Pilihan</th>
                 </tr>
                 </thead>
@@ -168,15 +201,21 @@
                     <td><a data-toggle="modal" data-target="#detailModal"><?php echo $row['prioritas'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal"><?php echo $row['alamat'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal"><?php echo $row['kelurahan'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal"><?php echo $row['mk_tlp'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal"><?php echo $row['mk_email'];?></a></td>
+                    <td><a data-toggle="modal" data-target="#detailModal"><?php ($row['last_update']=="" ? print("Belum") : print("Sudah"));?></a></td>
                     <td>
                       <a href="<?php echo base_url('index.php/crud/edit/'.$row['id']);?>">
-                        <button type="button" class="btn btn-primary btn-sm">Ubah</button>
+                          <?php if($row['last_update'] != ""){
+                            echo '<button type="button" class="btn btn-warning btn-sm">Ubah</button>';
+                            } else {
+                              echo '<button type="button" class="btn btn-primary btn-sm">Visit</button>';
+                            }
+                            ?>
                       </a>
+                      <?php if ($_SESSION['username']['role'] == "Administrator"){?>
                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?php echo $row['id'];?>">
                       Hapus
                     </button>
+                  <?php }?>
                     
                     <!-- Modal Hapus -->
                     <div class="modal fade" id="myModal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -362,8 +401,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018 <a href="https:telkom.co.id">Telkom Indonesia</a>.</strong> (940393)
   </footer>
 
   <!-- Control Sidebar -->
@@ -480,6 +518,7 @@
 <script src="https://adminlte.io/themes/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="https://adminlte.io/themes/AdminLTE/dist/js/demo.js"></script>
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {
@@ -491,6 +530,10 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false
+    })
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'dd-mm-yyyy'
     })
   })
 </script>
