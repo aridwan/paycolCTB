@@ -65,7 +65,7 @@ class Auth extends CI_Controller {
 				// print_r($data);
 				$this->load->view('dashboard',$data);
 			} else {
-				$query = $this->db->query('SELECT * FROM ctb WHERE tgl_visit="'.$_GET['tanggal'].'"');
+				$query = $this->db->query('SELECT * FROM ctb WHERE tgl_visit LIKE \'%'.$_GET['tanggal'].'\' AND no_inet LIKE \'%'.$_GET['no_layanan'].'%\' AND prioritas LIKE \'%'.$_GET['prioritas'].'%\'');
 				$data['hasil'] = $query->result_array();
 				// print_r($data);
 				$this->load->view('dashboard',$data);

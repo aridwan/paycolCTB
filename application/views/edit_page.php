@@ -65,7 +65,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('telkom2.png');?>">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs">Administrator</span>
+              <img src="<?php echo base_url('telkom2.png');?>">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs"><?php echo $_SESSION['username']['nama'];?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
@@ -127,9 +127,13 @@
         <li><i class="fa fa-dashboard"></i> Home</li>
       </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
+      
+    <?php if(isset($error)){?>
+      <div class="alert alert-danger" role="alert">
+        <?php echo $error['error'];?>
+      </div>
+    <?php }?>
       <div class="row">
         <div class="col-lg-12">
           
@@ -138,7 +142,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?php echo base_url('index.php/crud/update/'.$id);?>" class="form-horizontal" method="POST">
+            <form action="<?php echo base_url('index.php/crud/update/'.$id);?>" class="form-horizontal" enctype="multipart/form-data" method="POST">
               <div class="box-body">
                 <div class="row">
                   <div class="col-md-6">
@@ -371,6 +375,14 @@
                       <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
                       <div class="col-sm-9">
                         <input type="text" class="form-control" id="bulan-aktif" name="keterangan" value="<?php echo $keterangan;?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Foto</label>
+                      <div class="col-sm-9">
+                        <input type="file" class="form-control" name="userfile">
                       </div>
                     </div>
                   </div>
