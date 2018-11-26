@@ -136,9 +136,9 @@
         <div class="col-md-6">
           <div class="box box-solid bg-blue-gradient">
             <div class="box-header">
-              <i class="fa fa-calendar"></i>
+              <i class="fa fa-gears"></i>
 
-              <h3 class="box-title">Filter Tanggal</h3>
+              <h3 class="box-title">Filter</h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
                 <!-- button with a dropdown -->
@@ -153,12 +153,50 @@
             <!-- /.box-header -->
             <div class="box-body">
               <!--The calendar -->
-              <form method="GET" action="<?php echo base_url('index.php/auth/filtered')?>">
-                <div class="col-md-10">
-                  <input class="form-control" id="datepicker" name="tanggal">
+              <form autocomplete="off" method="GET" action="<?php echo base_url('index.php/auth/filtered')?>">
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input class="form-control" id="datepicker" name="tanggal" placeholder="Tanggal">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="submit" class="btn btn-success" value="Filter">
+                  </div>
                 </div>
-                <div class="col-md-2">
-                  <input type="submit" class="btn btn-success" value="Filter">
+                <br>
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-edit"></i>
+                      </div>
+                      <input class="form-control" name="no_layanan" placeholder="Nomor Layanan">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-exchange"></i>
+                      </div>
+                      <input class="form-control" name="prioritas" placeholder="Prioritas">
+                      <!-- <select class="form-control" name="prioritas">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                      </select> -->
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
