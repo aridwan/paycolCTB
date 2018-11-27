@@ -84,6 +84,36 @@ class Auth extends CI_Controller {
 		// }
 	}
 
+	public function change_password(){
+		$this->load->view('change_password_page');
+	}
+
+	public function update_password(){
+		if ($_POST['new_password_repeat'] == $_POST['new_password']){
+			$this->db->where('username',$_POST['username']);
+			$this->db->where('password',hash('ripemd160', $_POST['old_password']));
+			$user = $this->db->get('users')->row_array();
+			if (isset($user)){
+				$this->db->reset_query();
+				$this->db->where('id',$user['id']);
+				// print_r($user['password']);
+				// echo "<br>";
+				// print_r(hash('ripemd160', $_POST['old_password']));
+				$data = array(
+					'password' => hash('ripemd160', $_POST['new_password'])
+				);
+				$this->db->update('users',$data);
+				redirect('auth');
+			} else {
+				$data['error'] = 'Username tidak ditemukan atau Password salah';
+				$this->load->view('change_password_page',$data);
+			}
+		} else {
+			$data['error'] = 'Ulangi password tidak sama';
+			$this->load->view('change_password_page',$data);
+		}
+	}
+
 	public function download()
 	{
 		$spreadsheet = new Spreadsheet();
