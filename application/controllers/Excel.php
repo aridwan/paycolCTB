@@ -33,18 +33,19 @@ class Excel extends CI_Controller {
 		$sheet->setCellValue('E1', 'No Ref');
 		$sheet->setCellValue('F1', 'Prioritas');			
 		$sheet->setCellValue('G1', 'Alamat');
-		$sheet->setCellValue('H1', 'Nomor');
-		$sheet->setCellValue('I1', 'RT/RW');
-		$sheet->setCellValue('J1', 'Kelurahan');
-		$sheet->setCellValue('K1', 'MK Telp');
-		$sheet->setCellValue('L1', 'MK Email');
-		$sheet->setCellValue('M1', 'Tagihan N');
-		$sheet->setCellValue('N1', 'Tagihan N1');
-		$sheet->setCellValue('O1', 'Total Tagihan');
-		$sheet->setCellValue('P1', 'Kategori Visit');
-		$sheet->setCellValue('Q1', 'Nama Yang Ditemui');
-		$sheet->setCellValue('R1', 'Keterangan');
-		$sheet->setCellValue('S1', 'Last Update');
+		$sheet->setCellValue('H1', 'Customer');
+		$sheet->setCellValue('I1', 'Nomor');
+		$sheet->setCellValue('J1', 'RT/RW');
+		$sheet->setCellValue('K1', 'Kelurahan');
+		$sheet->setCellValue('L1', 'MK Telp');
+		$sheet->setCellValue('M1', 'Mk Email');
+		$sheet->setCellValue('N1', 'Tagihan N');
+		$sheet->setCellValue('O1', 'Tagihan N1');
+		$sheet->setCellValue('P1', 'Total Tagihan');
+		$sheet->setCellValue('Q1', 'Kategori Visit');
+		$sheet->setCellValue('R1', 'Nama yang ditemui');
+		$sheet->setCellValue('S1', 'Keterangan');
+		$sheet->setCellValue('T1', 'Last Update');
 
 		$accessPoints = $this->db->get('ctb')->result_array();
 		
@@ -58,18 +59,19 @@ class Excel extends CI_Controller {
 			$sheet->setCellValue('E'.$z,$accessPoints[$i-1]['no_ref']);			
 			$sheet->setCellValue('F'.$z,$accessPoints[$i-1]['prioritas']);
 			$sheet->setCellValue('G'.$z,$accessPoints[$i-1]['alamat']);
-			$sheet->setCellValue('H'.$z,$accessPoints[$i-1]['nomor']);
-			$sheet->setCellValue('I'.$z,$accessPoints[$i-1]['rt_rw']);
-			$sheet->setCellValue('J'.$z,$accessPoints[$i-1]['kelurahan']);
-			$sheet->setCellValue('K'.$z,$accessPoints[$i-1]['mk_tlp']);
-			$sheet->setCellValue('L'.$z,$accessPoints[$i-1]['mk_email']);
-			$sheet->setCellValue('M'.$z,$accessPoints[$i-1]['tagihan_n']);
-			$sheet->setCellValue('N'.$z,$accessPoints[$i-1]['tagihan_n1']);
-			$sheet->setCellValue('O'.$z,$accessPoints[$i-1]['total_tagihan']);
-			$sheet->setCellValue('P'.$z,$accessPoints[$i-1]['kategori_visit']);
-			$sheet->setCellValue('Q'.$z,$accessPoints[$i-1]['nama_yang_ditemui']);
-			$sheet->setCellValue('R'.$z,$accessPoints[$i-1]['keterangan']);
-			$sheet->setCellValue('S'.$z,$accessPoints[$i-1]['last_update']);
+			$sheet->setCellValue('H'.$z,$accessPoints[$i-1]['customer']);
+			$sheet->setCellValue('I'.$z,$accessPoints[$i-1]['nomor']);
+			$sheet->setCellValue('J'.$z,$accessPoints[$i-1]['rt_rw']);
+			$sheet->setCellValue('K'.$z,$accessPoints[$i-1]['kelurahan']);
+			$sheet->setCellValue('L'.$z,$accessPoints[$i-1]['mk_telp']);
+			$sheet->setCellValue('M'.$z,$accessPoints[$i-1]['mk_email']);
+			$sheet->setCellValue('N'.$z,$accessPoints[$i-1]['tagihan_n']);
+			$sheet->setCellValue('O'.$z,$accessPoints[$i-1]['tagihan_n1']);
+			$sheet->setCellValue('P'.$z,$accessPoints[$i-1]['total_tagihan']);
+			$sheet->setCellValue('Q'.$z,$accessPoints[$i-1]['kategori_visit']);
+			$sheet->setCellValue('R'.$z,$accessPoints[$i-1]['nama_yang_ditemui']);
+			$sheet->setCellValue('S'.$z,$accessPoints[$i-1]['keterangan']);
+			$sheet->setCellValue('T'.$z,$accessPoints[$i-1]['last_update']);
 
 		}
 		
@@ -143,17 +145,18 @@ class Excel extends CI_Controller {
 							'no_ref' => $sheetData[$i][4],
 							'prioritas' => $sheetData[$i][5],
 							'alamat' => $sheetData[$i][6],
-							'nomor' => $sheetData[$i][7],
-							'rt_rw' => $sheetData[$i][8],
-							'kelurahan' => $sheetData[$i][9],
-							'mk_tlp' => $sheetData[$i][10],
-							'mk_email' => $sheetData[$i][11],
-							'tagihan_n' => $sheetData[$i][12],
-							'tagihan_n1' => $sheetData[$i][13],
-							'total_tagihan' => $sheetData[$i][14],
-							'kategori_visit' => $sheetData[$i][15],
-							'nama_yang_ditemui' => $sheetData[$i][16],
-							'keterangan' => $sheetData[$i][17]
+							'customer' => $sheetData[$i][7],
+							'nomor' => $sheetData[$i][8],
+							'rt_rw' => $sheetData[$i][9],
+							'kelurahan' => $sheetData[$i][10],
+							'mk_tlp' => $sheetData[$i][11],
+							'mk_email' => $sheetData[$i][12],
+							'tagihan_n' => $sheetData[$i][13],
+							'tagihan_n1' => $sheetData[$i][14],
+							'total_tagihan' => $sheetData[$i][15],
+							'kategori_visit' => $sheetData[$i][16],
+							'nama_yang_ditemui' => $sheetData[$i][17],
+							'keterangan' => $sheetData[$i][18]
 						);
 				$last_id++;
         	}

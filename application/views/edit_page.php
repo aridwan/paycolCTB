@@ -131,7 +131,7 @@
       
     <?php if(isset($error)){?>
       <div class="alert alert-danger" role="alert">
-        <?php echo $error['error'];?>
+        <?php echo $error;?>
       </div>
     <?php }?>
       <div class="row">
@@ -226,74 +226,74 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="status-ap" name="nomor" value="<?php echo $nomor;?>" >
-                        <input type="text" class="form-control" id="status-ap" name="nomor" value="<?php echo $nomor;?>" 
+                        <input type="hidden" class="form-control" id="status-ap" name="customer" value="<?php echo $customer;?>" >
+                        <input type="text" class="form-control" id="status-ap" name="customer" value="<?php echo $customer;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <div class="col-sm-9">
+                        <input type="hidden" class="form-control" id="location-type" name="nomor" value="<?php echo $nomor;?>" >
+                        <input type="text" class="form-control" id="location-type" name="nomor" value="<?php echo $nomor;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="location-type" name="rt_rw" value="<?php echo $rt_rw;?>" >
-                        <input type="text" class="form-control" id="location-type" name="rt_rw" value="<?php echo $rt_rw;?>" 
+                        <input type="hidden" class="form-control" id="customer" name="rt_rw" value="<?php echo $rt_rw;?>" >
+                        <input type="text" class="form-control" id="customer" name="rt_rw" value="<?php echo $rt_rw;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="customer" name="kelurahan" value="<?php echo $kelurahan;?>" >
-                        <input type="text" class="form-control" id="customer" name="kelurahan" value="<?php echo $kelurahan;?>" 
+                        <input type="hidden" class="form-control" id="alamat" name="kelurahan" value="<?php echo $kelurahan;?>" >
+                        <input type="text" class="form-control" id="alamat" name="kelurahan" value="<?php echo $kelurahan;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="alamat" name="mk_tlp" value="<?php echo $mk_tlp;?>" >
-                        <input type="text" class="form-control" id="alamat" name="mk_tlp" value="<?php echo $mk_tlp;?>" 
+                        <input type="hidden" class="form-control" id="skema-bisnis" name="mk_tlp" value="<?php echo $mk_tlp;?>" >
+                        <input type="text" class="form-control" id="skema-bisnis" name="mk_tlp" value="<?php echo $mk_tlp;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="skema-bisnis" name="mk_email" value="<?php echo $mk_email;?>" >
-                        <input type="text" class="form-control" id="skema-bisnis" name="mk_email" value="<?php echo $mk_email;?>" 
-                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
-                          disabled=""  
-                        <?php endif ?>>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
-                      <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="ssi" name="tagihan_n" value="<?php echo $tagihan_n;?>" >
-                        <input type="text" class="form-control" id="ssi" name="tagihan_n" value="<?php echo $tagihan_n;?>" 
+                        <input type="hidden" class="form-control" id="ssi" name="mk_email" value="<?php echo $mk_email;?>" >
+                        <input type="text" class="form-control" id="ssi" name="mk_email" value="<?php echo $mk_email;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
@@ -304,10 +304,10 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="posisi-ap" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" >
-                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" 
+                        <input type="hidden" class="form-control" id="posisi-ap" name="tagihan_n" value="<?php echo $tagihan_n;?>" >
+                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n" value="<?php echo $tagihan_n;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>>
@@ -316,10 +316,10 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control" id="tahun-aktif" name="total_tagihan" value="<?php echo $total_tagihan;?>" >
-                        <input type="text" class="form-control" id="tahun-aktif" name="total_tagihan" value="<?php echo $total_tagihan;?>" 
+                        <input type="hidden" class="form-control" id="tahun-aktif" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" >
+                        <input type="text" class="form-control" id="tahun-aktif" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" 
                         <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
                           disabled=""  
                         <?php endif ?>
@@ -331,40 +331,133 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
                       <div class="col-sm-9">
-                        <select class="form-control" name="kategori_visit">
-                          <option>ALAMAT TIDAK DITEMUKAN</option>
-                          <option>BUKAN PELANGGAN BERSANGKUTAN</option>
-                          <option>BUKAN PEMILIK / DM</option>
-                          <option>INPROGRES VISIT</option>
-                          <option>JANJI BAYAR</option>
-                          <option>JARANG DIPAKAI</option>
-                          <option>KEMAHALAN</option>
-                          <option>KENDALA KEUANGAN/ BANGKRUT</option>
-                          <option>LAYANAN BELUM AKTIF</option>
-                          <option>LUPA BAYAR</option>
-                          <option>PASANG TINGGAL/ CABUT PASANG</option>
-                          <option>PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
-                          <option>PINDAH RUMAH/ SELESAI KONTRAK</option>
-                          <option>RUMAH TAK BERPENGHUNI</option>
-                          <option>SERING GANGGUAN/ GANGGUAN BERULANG</option>
-                          <option>SUDAH BAYAR</option>
-                          <option>SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
-                          <option>TAGIHAN MELONJAK</option>
-                          <option>TARIF TIDAK SESUAI JANJI</option>
-                          <option>TIDAK BERTEMU PENGHUNI</option>
-                          <option>TIDAK MERASA PASANG</option>
-                          <option>TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
-                        </select>
+                        <input type="hidden" class="form-control" id="tahun-aktif" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" >
+                        <input type="text" class="form-control" id="tahun-aktif" name="tagihan_n1" value="<?php echo $tagihan_n1;?>" 
+                        <?php if ($_SESSION['username']['role'] != 'Administrator'): ?>
+                          disabled=""  
+                        <?php endif ?>
                       </div>
                     </div>
                   </div>
+                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="sto" name="nama_yang_ditemui" value="<?php echo $nama_yang_ditemui;?>">
+                        <select class="form-control" name="kategori_visit">
+                          <option value="ALAMAT TIDAK DITEMUKAN"
+                          <?php if($kategori_visit == "ALAMAT TIDAK DITEMUKAN"){
+                            echo 'selected=""';
+                          }?>
+                          >ALAMAT TIDAK DITEMUKAN</option>
+                          <option value="BUKAN PELANGGAN BERSANGKUTAN"
+                          <?php if($kategori_visit == "BUKAN PELANGGAN BERSANGKUTAN"){
+                            echo 'selected=""';
+                          }?>
+                          >BUKAN PELANGGAN BERSANGKUTAN</option>
+                          <option value="BUKAN PEMILIK / DM"
+                          <?php if($kategori_visit == 'BUKAN PEMILIK / DM'){
+                            echo 'selected=""';
+                          }?>
+                          >BUKAN PEMILIK / DM</option>
+                          <option value="INPROGRES VISIT" 
+                          <?php if($kategori_visit == "INPROGRES VISIT"){
+                            echo 'selected=""';
+                          }?>
+                          >INPROGRES VISIT</option>
+                          <option value="JANJI BAYAR"
+                          <?php if($kategori_visit == "JANJI BAYAR"){
+                            echo 'selected=""';
+                          }?>
+                          >JANJI BAYAR</option>
+                          <option value="JARANG DIPAKAI"
+                          <?php if($kategori_visit == "JARANG DIPAKAI"){
+                            echo 'selected=""';
+                          }?>
+                          >JARANG DIPAKAI</option>
+                          <option value="KEMAHALAN"
+                          <?php if($kategori_visit == "KEMAHALAN"){
+                            echo 'selected=""';
+                          }?>
+                          >KEMAHALAN</option>
+                          <option value="KENDALA KEUANGAN/ BANGKRUT"
+                          <?php if($kategori_visit == 'KENDALA KEUANGAN/ BANGKRUT'){
+                            echo 'selected=""';
+                          }?>
+                          >KENDALA KEUANGAN/ BANGKRUT</option>
+                          <option value="LAYANAN BELUM AKTIF"
+                          <?php if($kategori_visit == 'LAYANAN BELUM AKTIF'){
+                            echo 'selected=""';
+                          }?>
+                          >LAYANAN BELUM AKTIF</option>
+                          <option value="LUPA BAYAR"
+                          <?php if($kategori_visit == 'LUPA BAYAR'){
+                            echo 'selected=""';
+                          }?>
+                          >LUPA BAYAR</option>
+                          <option value="PASANG TINGGAL/ CABUT PASANG"
+                          <?php if($kategori_visit == 'PASANG TINGGAL/ CABUT PASANG'){
+                            echo 'selected=""';
+                          }?>
+                          >PASANG TINGGAL/ CABUT PASANG</option>
+                          <option value="PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE"
+                          <?php if($kategori_visit == 'PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE'){
+                            echo 'selected=""';
+                          }?>
+                          >PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
+                          <option value="PINDAH RUMAH/ SELESAI KONTRAK"
+                          <?php if($kategori_visit == 'PINDAH RUMAH/ SELESAI KONTRAK'){
+                            echo 'selected=""';
+                          }?>
+                          >PINDAH RUMAH/ SELESAI KONTRAK</option>
+                          <option value="RUMAH TAK BERPENGHUNI"
+                          <?php if($kategori_visit == 'RUMAH TAK BERPENGHUNI'){
+                            echo 'selected=""';
+                          }?>
+                          >RUMAH TAK BERPENGHUNI</option>
+                          <option value="SERING GANGGUAN/ GANGGUAN BERULANG"
+                          <?php if($kategori_visit == 'SERING GANGGUAN/ GANGGUAN BERULANG'){
+                            echo 'selected=""';
+                          }?>
+                          >SERING GANGGUAN/ GANGGUAN BERULANG</option>
+                          <option value="SUDAH BAYAR"
+                          <?php if($kategori_visit == 'SUDAH BAYAR'){
+                            echo 'selected=""';
+                          }?>
+                          >SUDAH BAYAR</option>
+                          <option value="SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN"
+                          <?php if($kategori_visit == 'SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN'){
+                            echo 'selected=""';
+                          }?>
+                          >SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
+                          <option value="TAGIHAN MELONJAK"
+                          <?php if($kategori_visit == 'TAGIHAN MELONJAK'){
+                            echo 'selected=""';
+                          }?>
+                          >TAGIHAN MELONJAK</option>
+                          <option value="TARIF TIDAK SESUAI JANJI"
+                          <?php if($kategori_visit == 'TARIF TIDAK SESUAI JANJI'){
+                            echo 'selected=""';
+                          }?>
+                          >TARIF TIDAK SESUAI JANJI</option>
+                          <option value="TIDAK BERTEMU PENGHUNI"
+                          <?php if($kategori_visit == 'TIDAK BERTEMU PENGHUNI'){
+                            echo 'selected=""';
+                          }?>
+                          >TIDAK BERTEMU PENGHUNI</option>
+                          <option value="TIDAK MERASA PASANG"
+                          <?php if($kategori_visit == 'TIDAK MERASA PASANG'){
+                            echo 'selected=""';
+                          }?>
+                          >TIDAK MERASA PASANG</option>
+                          <option value="TIDAK SEMPAT BAYAR/ SIBUK/ LUPA"
+                          <?php if($kategori_visit == 'TIDAK SEMPAT BAYAR/ SIBUK/ LUPA'){
+                            echo 'selected=""';
+                          }?>
+                          >TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -372,12 +465,22 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="bulan-aktif" name="keterangan" value="<?php echo $keterangan;?>">
+                        <input type="text" class="form-control" id="bulan-aktif" name="nama_yang_ditemui" value="<?php echo $nama_yang_ditemui;?>">
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="keterangan" value="<?php echo $keterangan;?>">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Foto</label>
@@ -386,6 +489,7 @@
                       </div>
                     </div>
                   </div>
+                  
                 </div>
               <!-- /.box-body -->
               <div class="box-footer">

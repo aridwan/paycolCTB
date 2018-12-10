@@ -215,53 +215,53 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="status-ap" name="nomor">
+                        <input type="text" class="form-control" id="status-ap" name="customer">
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="location-type" name="nomor">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="location-type" name="rt_rw">
+                        <input type="text" class="form-control" id="customer" name="rt_rw">
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="customer" name="kelurahan">
+                        <input type="text" class="form-control" id="alamat" name="kelurahan">
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="alamat" name="mk_tlp">
+                        <input type="text" class="form-control" id="skema-bisnis" name="mk_telp">
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="skema-bisnis" name="mk_email">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ssi" name="tagihan_n">
+                        <input type="text" class="form-control" id="ssi" name="mk_email">
                       </div>
                     </div>
                   </div>
@@ -269,12 +269,22 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n1">
+                        <input type="text" class="form-control" id="posisi-ap" name="tagihan_n">
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="tahun-aktif" name="tagihan_n1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
@@ -283,39 +293,39 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
                       <div class="col-sm-9">
                         <select class="form-control" name="kategori_visit">
-                          <option>ALAMAT TIDAK DITEMUKAN</option>
-                          <option>BUKAN PELANGGAN BERSANGKUTAN</option>
-                          <option>BUKAN PEMILIK / DM</option>
-                          <option>INPROGRES VISIT</option>
-                          <option>JANJI BAYAR</option>
-                          <option>JARANG DIPAKAI</option>
-                          <option>KEMAHALAN</option>
-                          <option>KENDALA KEUANGAN/ BANGKRUT</option>
-                          <option>LAYANAN BELUM AKTIF</option>
-                          <option>LUPA BAYAR</option>
-                          <option>PASANG TINGGAL/ CABUT PASANG</option>
-                          <option>PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
-                          <option>PINDAH RUMAH/ SELESAI KONTRAK</option>
-                          <option>RUMAH TAK BERPENGHUNI</option>
-                          <option>SERING GANGGUAN/ GANGGUAN BERULANG</option>
-                          <option>SUDAH BAYAR</option>
-                          <option>SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
-                          <option>TAGIHAN MELONJAK</option>
-                          <option>TARIF TIDAK SESUAI JANJI</option>
-                          <option>TIDAK BERTEMU PENGHUNI</option>
-                          <option>TIDAK MERASA PASANG</option>
-                          <option>TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
+                            <option value="ALAMAT TIDAK DITEMUKAN">ALAMAT TIDAK DITEMUKAN</option>
+                            <option value="BUKAN PELANGGAN BERSANGKUTAN">BUKAN PELANGGAN BERSANGKUTAN</option>
+                            <option value="BUKAN PEMILIK / DM">BUKAN PEMILIK / DM</option>
+                            <option value="INPROGRES VISIT">INPROGRES VISIT</option>
+                            <option value="JANJI BAYAR">JANJI BAYAR</option>
+                            <option value="JARANG DIPAKAI">JARANG DIPAKAI</option>
+                            <option value="KEMAHALAN">KEMAHALAN</option>
+                            <option value="KENDALA KEUANGAN/ BANGKRUT">KENDALA KEUANGAN/ BANGKRUT</option>
+                            <option value="LAYANAN BELUM AKTIF">LAYANAN BELUM AKTIF</option>
+                            <option value="LUPA BAYAR">LUPA BAYAR</option>
+                            <option value="PASANG TINGGAL/ CABUT PASANG">PASANG TINGGAL/ CABUT PASANG</option>
+                            <option value="PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE">PENANGANAN GANGGUAN LAMBAT/ BERTELE-TELE</option>
+                            <option value="PINDAH RUMAH/ SELESAI KONTRAK">PINDAH RUMAH/ SELESAI KONTRAK</option>
+                            <option value="RUMAH TAK BERPENGHUNI">RUMAH TAK BERPENGHUNI</option>
+                            <option value="SERING GANGGUAN/ GANGGUAN BERULANG">SERING GANGGUAN/ GANGGUAN BERULANG</option>
+                            <option value="SUDAH BAYAR">SUDAH BAYAR</option>
+                            <option value="SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN">SUDAH MINTA CABUT MASIH TIMBUL TAGIHAN</option>
+                            <option value="TAGIHAN MELONJAK">TAGIHAN MELONJAK</option>
+                            <option value="TARIF TIDAK SESUAI JANJI">TARIF TIDAK SESUAI JANJI</option>
+                            <option value="TIDAK BERTEMU PENGHUNI">TIDAK BERTEMU PENGHUNI</option>
+                            <option value="TIDAK MERASA PASANG">TIDAK MERASA PASANG</option>
+                            <option value="TIDAK SEMPAT BAYAR/ SIBUK/ LUPA">TIDAK SEMPAT BAYAR/ SIBUK/ LUPA</option>
                         </select>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
@@ -324,8 +334,6 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>

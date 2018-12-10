@@ -223,7 +223,10 @@
                   <th>No Ref</th>
                   <th>Prioritas</th>
                   <th>Alamat</th>
+                  <th>Customer</th>
                   <th>Kelurahan</th>
+                  <th>Nama yang ditemui</th>
+                  <th>Kategori Visit</th>
                   <th>Visit</th>
                   <th>Pilihan</th>
                 </tr>
@@ -238,7 +241,10 @@
                     <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['no_ref'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['prioritas'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['alamat'];?></a></td>
+                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['customer'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['kelurahan'];?></a></td>
+                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['nama_yang_ditemui'];?></a></td>
+                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['kategori_visit'];?></a></td>
                     <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php ($row['last_update']=="" ? print("Belum") : print("Sudah"));?></a></td>
                     <td>
                       <a href="<?php echo base_url('index.php/crud/edit/'.$row['id']);?>">
@@ -331,85 +337,87 @@
                             </div>
                             <div class="row">
                               <div class="col-md-3">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
+                              </div>
+                              <div class="col-md-3">
+                                <?php echo $row['customer'];?>
+                              </div>
+                              <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['nomor'];?>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['rt_rw'];?>
                               </div>
-                            </div>
-                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['kelurahan'];?>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['mk_tlp'];?>
                               </div>
-                            </div>
-                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['mk_email'];?>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['tagihan_n'];?>
                               </div>
-                            </div>
-                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['tagihan_n1'];?>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['total_tagihan'];?>
                               </div>
-                            </div>
-                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['kategori_visit'];?>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['nama_yang_ditemui'];?>
                               </div>
-                            </div>
-                            <div class="row">
                               <div class="col-md-3">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
                               </div>
                               <div class="col-md-3">
                                 <?php echo $row['keterangan'];?>
                               </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">foto</label>
-                              </div>
-                              
                             </div>
                           </div>
                           <div class="modal-footer">
