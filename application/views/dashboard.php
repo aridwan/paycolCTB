@@ -153,18 +153,18 @@
             <!-- /.box-header -->
             <div class="box-body">
               <!--The calendar -->
-              <form autocomplete="off" method="GET" action="<?php echo base_url('index.php/auth/filtered')?>">
+              <form autocomplete="off" >
                 <div class="row">
                   <div class="col-md-10">
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                       </div>
-                      <input class="form-control" id="datepicker" name="tanggal" placeholder="Tanggal">
+                      <input class="form-control" id="tanggal-filter" name="tanggal" placeholder="Tanggal">
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <input type="submit" class="btn btn-success" value="Filter">
+                    <div class="btn btn-success" id="btn-filter">Filter</div>
                   </div>
                 </div>
                 <br>
@@ -174,7 +174,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-edit"></i>
                       </div>
-                      <input class="form-control" name="no_layanan" placeholder="Nomor Layanan">
+                      <input class="form-control" name="no_layanan" id="no-layanan-filter" placeholder="Nomor Layanan">
                     </div>
                   </div>
                 </div>
@@ -185,7 +185,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-exchange"></i>
                       </div>
-                      <input class="form-control" name="prioritas" placeholder="Prioritas">
+                      <input class="form-control" name="prioritas" id="prioritas-filter" placeholder="Prioritas">
                       <!-- <select class="form-control" name="prioritas">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -231,222 +231,6 @@
                   <th>Pilihan</th>
                 </tr>
                 </thead>
-                <tbody>
-                  <?php foreach ($hasil as $row){?>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['id'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['nama_visitor'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['tgl_visit'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['no_inet'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['no_ref'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['prioritas'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['alamat'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['customer'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['kelurahan'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['nama_yang_ditemui'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php echo $row['kategori_visit'];?></a></td>
-                    <td><a data-toggle="modal" data-target="#detailModal<?php echo $row['id'];?>"><?php ($row['last_update']=="" ? print("Belum") : print("Sudah"));?></a></td>
-                    <td>
-                      <a href="<?php echo base_url('index.php/crud/edit/'.$row['id']);?>">
-                          <?php if($_SESSION['username']['role'] == "Administrator"){
-                              echo '<button type="button" class="btn btn-primary btn-sm">Ubah</button>';
-                            } else {
-                              if ($row['last_update'] != "") {
-                                echo '<button type="button" class="btn btn-primary btn-sm">Ubah</button>';
-                              } else {
-                                echo '<button type="button" class="btn btn-warning btn-sm">Visit</button>';  
-                              }
-                            }
-                          ?>
-                      </a>
-                      <?php if ($_SESSION['username']['role'] == "Administrator"){?>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?php echo $row['id'];?>">
-                      Hapus
-                    </button>
-                  <?php }?>
-                    
-                    <!-- Modal Hapus -->
-                    <div class="modal fade" id="myModal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Peringatan</h4>
-                          </div>
-                          <div class="modal-body">
-                            Apakah anda yakin akan menghapus data tersebut ?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                            <a href="<?php echo base_url('index.php/crud/delete/'.$row['id']);?>"><button type="button" class="btn btn-danger">Hapus</button></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Modal detail -->
-                    <div class="modal fade bs-example-modal-lg" id="detailModal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                      <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Detail Work Order</h4>
-                          </div>
-                          <div class="modal-body">
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Nama Visitor</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['nama_visitor'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Visit</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['tgl_visit'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">No Layanan</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['no_inet'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">No Ref</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['no_ref'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['prioritas'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['alamat'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['customer'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['nomor'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['rt_rw'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['kelurahan'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['mk_tlp'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['mk_email'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['tagihan_n'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['tagihan_n1'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['total_tagihan'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['kategori_visit'];?>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['nama_yang_ditemui'];?>
-                              </div>
-                              <div class="col-md-3">
-                                <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
-                              </div>
-                              <div class="col-md-3">
-                                <?php echo $row['keterangan'];?>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <div class="col-md-12">
-                                <img src="<?php echo base_url().$row['foto_path'];?>">
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="modal fade" id="detailModal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Detail Access Point</h4>
-                          </div>
-                          <div class="modal-body">
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    </td>
-                  </tr>
-                <?php }?>
-                </tbody>
                 
               </table>
             </div>
@@ -585,21 +369,51 @@
 <script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-    $('#datepicker').datepicker({
+  $(document).ready(function(){
+
+    fill_dataTable();
+
+      function fill_dataTable(tanggal = '', no_layanan = '', prioritas = ''){
+      var dataTable = $('#example1').DataTable({  
+           "processing":true,  
+           "serverSide":true,  
+           "order":[],  
+           "ajax":{  
+                'url': "<?php echo base_url('index.php/auth/ajaxDashboard'); ?>",  
+                'type': "POST",
+                'data': {
+                  tanggal: $('#tanggal-filter').val(),
+                  no_layanan: $('#no-layanan-filter').val(),
+                  prioritas: $('#prioritas-filter').val()
+                }
+           },  
+           "columnDefs":[  
+                {  
+                     "targets":[12],  
+                     "orderable":false,  
+                },  
+           ],  
+      });  
+    }
+
+    $('#btn-filter').click(function(){
+      var filter_tanggal = $('#tanggal-filter').val();
+      var filter_no_layanan = $('#no-layanan-filter').val();
+      var filter_prioritas = $('#prioritas-filter').val();
+      // if(filter_gender != '' && filter_country != '') {
+        $('#example1').DataTable().destroy();
+        fill_dataTable(filter_tanggal, filter_no_layanan, filter_prioritas);
+      // } else {
+      //   alert('Select Both filter option');
+      //   $('#customer_data').DataTable().destroy();
+      //   fill_datatable();
+      
+  });
+$('#tanggal-filter').datepicker({
       autoclose: true,
       format: 'dd-mm-yyyy'
     })
-  })
+ });
 </script>
 </body>
 </html>

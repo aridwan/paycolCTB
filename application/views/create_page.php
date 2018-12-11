@@ -192,13 +192,13 @@
                       <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
                       <div class="col-sm-9">
                         <select class="form-control" name="prioritas">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
+                          <option value="P1">P1</option>
+                          <option value="P2">P2</option>
+                          <option value="P3">P3</option>
+                          <option value="P4">P4</option>
+                          <option value="P5">P5</option>
+                          <option value="P6">P6</option>
+                          <option value="P7">P7</option>
                         </select>
                       </div>
                     </div>

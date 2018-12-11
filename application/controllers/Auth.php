@@ -114,6 +114,209 @@ class Auth extends CI_Controller {
 		}
 	}
 
+	public function ajaxDashboard(){
+		$this->load->model('AjaxModel');  
+        $fetch_data = $this->AjaxModel->make_datatables($_POST['tanggal'],$_POST['no_layanan'],$_POST['prioritas']);  
+        $data = array();  
+        foreach($fetch_data as $row)  
+        {  
+            $sub_array = array();  
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->id.'</a>';  
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->nama_visitor.'</a>';  
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->tgl_visit.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->no_inet.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->no_ref.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->prioritas.'</a>';  
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->alamat.'</a>';
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->customer.'</a>';
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->kelurahan.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->nama_yang_ditemui.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.$row->kategori_visit.'</a>'; 
+            $sub_array[] = '<a data-toggle="modal" data-target="#detailModal'.$row->id.'">'.'testing'.'</a>'; 
+            $sub_array[] = 	'<a href="'.base_url('index.php/crud/edit/').$row->id.'"><button type="button" name="update" id="'.$row->id.'" class="btn btn-primary btn-sm">Ubah</button></a>'.
+            				'&nbsp'.
+            				'<button type="button" name="update" id="'.$row->id.'" data-toggle="modal" data-target="#myModal'.$row->id.'"class="btn btn-danger btn-sm">Hapus</button>'.
+	            				'<div class="modal fade" id="myModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	                        <div class="modal-dialog" role="document">
+	                          <div class="modal-content">
+	                            <div class="modal-header">
+	                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                              <h4 class="modal-title" id="myModalLabel">Peringatan</h4>
+	                            </div>
+	                            <div class="modal-body">
+	                              Apakah anda yakin akan menghapus data tersebut ?
+	                            </div>
+	                            <div class="modal-footer">
+	                              <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+	                              <a href="'.base_url('index.php/crud/delete/'.$row->id).'"><button type="button" class="btn btn-danger">Hapus</button></a>
+	                            </div>
+	                          </div>
+	                        </div>
+	                      </div>'.
+	                      '<div class="modal fade bs-example-modal-lg" id="detailModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Detail Access Point</h4>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Nama Visitor</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->nama_visitor.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Visit</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->tgl_visit.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">No Layanan</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->no_inet.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">No Ref</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->no_ref.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->prioritas.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->alamat.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Customer</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->customer.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Nomor</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->nomor.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">RT/RW</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->rt_rw.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Kelurahan</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->kelurahan.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Telp</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->mk_tlp.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->mk_email.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->tagihan_n.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Tagihan N1</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->tagihan_n1.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Total Tagihan</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->total_tagihan.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Kategori Visit</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->kategori_visit.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Nama yang ditemui</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->nama_yang_ditemui.'
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Keterangan</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->keterangan.'
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <label for="inputEmail3" class="col-sm-3 control-label">Last Update</label>
+                                </div>
+                                <div class="col-md-3">
+                                  '.$row->last_update.'
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="modal-footer">
+                              <div class="col-md-12">
+                                <img src="'.base_url().$row->foto_path.'">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>';  
+            // $sub_array[] = '<button type="button" name="delete" id="'.$row->id.'" class="btn btn-danger btn-xs">Delete</button>';  
+            $data[] = $sub_array;  
+        }  
+        $output = array(  
+            "draw"              =>     intval($_POST["draw"]),  
+            "recordsTotal"      =>      $this->AjaxModel->get_all_data(),  
+            "recordsFiltered"   =>     $this->AjaxModel->get_filtered_data($_POST['tanggal'],$_POST['no_layanan'],$_POST['prioritas']),  
+            "data"              =>     $data  
+        );  
+        echo json_encode($output);  
+	}
+
 	public function download()
 	{
 		$spreadsheet = new Spreadsheet();
