@@ -172,6 +172,30 @@ public function update($id){
 		return $compress_image;
 	}
 
+	public function userManagement(){
+		if(isset($_SESSION['username'])){
+			$data['hasil'] = $this->db->get('users')->result_array();
+			$this->load->view('user_management',$data);
+		} else {
+			$this->load->view('forbidden_page');
+		}
+	}
+
+	public function resetPassword($id){
+		$this->db->where('id',$id);
+		$data = $this->db->get('users')->row();
+		$this->db->reset_query();
+		$this->db->where('id',$id);
+			$data = array(
+						'username' => $data->username,
+						'password' => hash('ripemd160', $data->username),
+						'nama' => $data->nama,
+						'role' => $data->role
+					);
+			$this->db->update('users',$data);
+			redirect('crud/userManagement');
+	}
+
 	public function download()
 	{
 		$spreadsheet = new Spreadsheet();

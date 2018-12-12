@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PayColl CTB</title>
+  <title>SiAP Telkom</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
   <style type="text/css">
     .box{
@@ -46,9 +45,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>CTB</b></span>
+      <span class="logo-mini"><b>Si</b>AP</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>PayColl</b>CTB</span>
+      <span class="logo-lg"><b>Si</b>AP</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -66,7 +65,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('/telkom2.png')?>">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs"><?php echo $_SESSION['username']['nama'];?></span>
+              <img src="<?php echo base_url('telkom2.png');?>">&nbsp&nbsp&nbsp&nbsp<span class="hidden-xs"><?php echo $_SESSION['username']['nama'];?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
@@ -97,7 +96,16 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <?php if($_SESSION['username']['role']=="Administrator"){?>
+        <li>
+          <a href="<?php echo base_url('index.php/laporan');?>">
+            <i class="fa fa-book"></i> <span>Laporan</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo base_url('index.php/laporan/investasi');?>">
+            <i class="fa fa-money"></i> <span>Laporan Investasi</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Data</span>
@@ -112,11 +120,10 @@
           </ul>
         </li>
         <li>
-          <a href="<?php echo base_url('index.php/crud/userManagement');?>">
+          <a href="<?php echo base_url('index.php/crud/user_management');?>">
             <i class="fa fa-user"></i> <span>User Management</span>
           </a>
         </li>
-      <?php }?>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -127,8 +134,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Work Order
-
+        Data User
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
@@ -137,77 +143,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box box-solid bg-blue-gradient">
-            <div class="box-header">
-              <i class="fa fa-gears"></i>
-
-              <h3 class="box-title">Filter</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <!-- button with a dropdown -->
-                
-                <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-primary btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!--The calendar -->
-              <form autocomplete="off" >
-                <div class="row">
-                  <div class="col-md-10">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input class="form-control" id="tanggal-filter" name="tanggal" placeholder="Tanggal">
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="btn btn-success" id="btn-filter">Filter</div>
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col-md-10">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-edit"></i>
-                      </div>
-                      <input class="form-control" name="no_layanan" id="no-layanan-filter" placeholder="Nomor Layanan">
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col-md-10">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-exchange"></i>
-                      </div>
-                      <input class="form-control" name="prioritas" id="prioritas-filter" placeholder="Prioritas">
-                      <!-- <select class="form-control" name="prioritas">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                      </select> -->
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div class="row">
         <div class="col-lg-12">
           
@@ -222,21 +158,25 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama Visitor</th>
-                  <th>Tanggal Visit</th>
-                  <th>No Layanan</th>
-                  <th>No Ref</th>
-                  <th>Prioritas</th>
-                  <th>Alamat</th>
-                  <th>Customer</th>
-                  <th>Kelurahan</th>
-                  <th>Nama yang ditemui</th>
-                  <th>Kategori Visit</th>
-                  <th>Visit</th>
+                  <th>Username</th>
+                  <th>Nama</th>
+                  <th>Role</th>
                   <th>Pilihan</th>
                 </tr>
                 </thead>
-                
+                <tbody>
+                  <?php foreach($hasil as $row) {?>
+                    <tr>
+                      <td><?php echo $row['id'];?></td>
+                      <td><?php echo $row['username'];?></td>
+                      <td><?php echo $row['nama'];?></td>
+                      <td><?php echo $row['role'];?></td>
+                      <td>
+                        <a href="<?php echo base_url('index.php/crud/resetPassword/'.$row['id']);?>"><button class="btn bg-purple">Reset</button></a>
+                      </td>
+                    </tr>
+                  <?php }?>
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
@@ -254,7 +194,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2018 <a href="https:telkom.co.id">Telkom Indonesia</a>.</strong> (940393)
+    <strong>Copyright &copy; 2018 <a href="https://telkom.co.id">Telkom Indonesia</a>.</strong> (M. Arief Ridwan 940393)
   </footer>
 
   <!-- Control Sidebar -->
@@ -371,55 +311,13 @@
 <script src="https://adminlte.io/themes/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="https://adminlte.io/themes/AdminLTE/dist/js/demo.js"></script>
-<script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- page script -->
 <script>
   $(document).ready(function(){
 
-    fill_dataTable();
+    $("#example1").DataTable();
 
-      function fill_dataTable(tanggal = '', no_layanan = '', prioritas = ''){
-      var dataTable = $('#example1').DataTable({  
-           "processing":true,  
-           "serverSide":true,  
-           "order":[],  
-           "ajax":{  
-                'url': "<?php echo base_url('index.php/auth/ajaxDashboard'); ?>",  
-                'type': "POST",
-                'data': {
-                  user: '<?php echo $_SESSION['username']['nama'];?>',
-                  tanggal: $('#tanggal-filter').val(),
-                  no_layanan: $('#no-layanan-filter').val(),
-                  prioritas: $('#prioritas-filter').val()
-                }
-           },  
-           "columnDefs":[  
-                {  
-                     "targets":[12],  
-                     "orderable":false,  
-                },  
-           ],  
-      });  
-    }
-
-    $('#btn-filter').click(function(){
-      var filter_tanggal = $('#tanggal-filter').val();
-      var filter_no_layanan = $('#no-layanan-filter').val();
-      var filter_prioritas = $('#prioritas-filter').val();
-      // if(filter_gender != '' && filter_country != '') {
-        $('#example1').DataTable().destroy();
-        fill_dataTable(filter_tanggal, filter_no_layanan, filter_prioritas);
-      // } else {
-      //   alert('Select Both filter option');
-      //   $('#customer_data').DataTable().destroy();
-      //   fill_datatable();
-      
-  });
-$('#tanggal-filter').datepicker({
-      autoclose: true,
-      format: 'dd-mm-yyyy'
-    })
- });
+ });  
 </script>
 </body>
 </html>

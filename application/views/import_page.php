@@ -96,6 +96,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        <?php if($_SESSION['username']['role']=="Administrator"){?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Data</span>
@@ -109,6 +110,12 @@
             <li><a href="<?php echo base_url('index.php/excel/export');?>"><i class="fa fa-circle-o"></i> Export</a></li>
           </ul>
         </li>
+        <li>
+          <a href="<?php echo base_url('index.php/crud/userManagement');?>">
+            <i class="fa fa-user"></i> <span>User Management</span>
+          </a>
+        </li>
+      <?php } ?>
       </ul>
     </section>
     <!-- /.sidebar -->
